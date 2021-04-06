@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+
+{% block title %}
+
+<title>Index</title>
+
+{% endblock %}
+
+{% block content %}
+
+<br>
+
+<div class="button group">
+
+    <a href="{% url 'display_Laptops' %}" class="btn btn-primary btn-md" role="button">Laptops</a>
+    <a href="add_laptop" class="btn btn-warning btn-sm" role="button">+</a>
+
+    <a href="{% url 'display_Desktops' %}" class="btn btn-primary btn-md" role="button">Desktops</a>
+    <a href="add_Desktop" class="btn btn-warning btn-sm" role="button">+</a>
+
+    <a href="{% url 'display_Mobiles' %}" class="btn btn-primary btn-md" role="button">Mobiles</a>
+    <a href="add_Mobile" class="btn btn-warning btn-sm" role="button">+</a>
+
+</div>
+<h1>{{HEADER}}</h1>
+<table class="table table-hover"><!--a light grey background will be added to the rows when the mouse hovers over it-->
+
+    <thead>
+    <tr>
+        <th>id</th>
+        <th>model</th>
+        <th>price</th>
+        <th>status</th>
+        <th>Issues</th>
+
+    </tr>
+    </thead>
+
+    <tbody>
+    {% for item in items %}
+    <tr>
+        <td>{{item.pk}}</td>
+        <td>{{item.type}}</td>
+        <td>{{item.Price}}</td>
+        <td>{{item.status}}</td>
+        <td>{{item.issues}}</td>
+        {% if HEADER == "LAPTOPS" %}
+        <td>
+            <a href="{% url 'edit_Laptop' item.pk %}" class="btn btn-warning btn-sm" role="button"> edit</a>
+            <a href="{% url 'delete_Laptop' item.pk %}" class="btn btn-warning btn-sm" role="button"> delete</a>
+        </td>
+        {% elif HEADER == "DESKTOPS" %}delete_Laptop
+        <td>
+            <a href="{% url 'edit_Desktop' item.pk %}" class="btn btn-warning btn-sm" role="button">edit</a>
+        </td>
+        {% elif HEADER == "MOBILES" %}
+        <td>
+            <a href="{% url 'edit_Mobile' item.pk %}" class="btn btn-warning btn-sm" role="button"> edit</a>
+        </td>
+    </tr>
+        {% endif %}
+    {% endfor %}
+    </tbody>
+
+
+</table>
+
+
+{% endblock %}

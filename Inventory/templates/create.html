@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+
+<title>{{ Device }}</title>
+
+
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+
+<form method="post">
+
+    {% csrf_token %}
+    <br>
+    {{ form.as_p }}
+
+    <button>Submit</button>
+</form>
+
+</div>
+
+{% endblock %}
