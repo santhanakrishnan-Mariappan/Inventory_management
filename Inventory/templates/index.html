@@ -49,13 +49,15 @@
             <a href="{% url 'edit_Laptop' item.pk %}" class="btn btn-warning btn-sm" role="button"> edit</a>
             <a href="{% url 'delete_Laptop' item.pk %}" class="btn btn-warning btn-sm" role="button"> delete</a>
         </td>
-        {% elif HEADER == "DESKTOPS" %}delete_Laptop
+        {% elif HEADER == "DESKTOPS" %}
         <td>
             <a href="{% url 'edit_Desktop' item.pk %}" class="btn btn-warning btn-sm" role="button">edit</a>
+            <a href="{% url 'delete_Desktop' item.pk %}" class="btn btn-warning btn-sm" role="button"> delete</a>
         </td>
         {% elif HEADER == "MOBILES" %}
         <td>
             <a href="{% url 'edit_Mobile' item.pk %}" class="btn btn-warning btn-sm" role="button"> edit</a>
+            <a href="{% url 'delete_Mobile' item.pk %}" class="btn btn-warning btn-sm" role="button"> delete</a>
         </td>
     </tr>
         {% endif %}

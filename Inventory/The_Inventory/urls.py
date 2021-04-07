@@ -14,5 +14,7 @@ urlpatterns = [
     path('edit_Desktop/<pk>', edit_Desktop, name="edit_Desktop"),
     path('edit_Mobile/<pk>', edit_Mobile, name="edit_Mobile"),
     path('delete_Laptop/<pk>', delete_Laptop, name="delete_Laptop"),
+    path('delete_Desktop/<pk>', delete_Desktop, name="delete_Desktop"),
+    path('delete_Mobile/<pk>', delete_Mobile, name="delete_Mobile"),
 
 ]

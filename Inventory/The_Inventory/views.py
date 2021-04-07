@@ -93,6 +93,23 @@ def delete_Laptop(request, pk):
         form = LaptopForm(instance=item)
         return render(request, 'delete.html', {'form': form})
 
+def delete_Desktop(request, pk):
+    item = DeskTop.objects.get(pk=pk)
+    if request.method == 'POST':
+        item.delete()
+        return redirect('display_Laptops')
+    else:
+        form = DesktopForm(instance=item)
+        return render(request, 'delete.html', {'form': form})
+
+def delete_Mobile(request, pk):
+    item = Mobile.objects.get(pk=pk)
+    if request.method == 'POST':
+        item.delete()
+        return redirect('display_Laptops')
+    else:
+        form = MobileForm(instance=item)
+        return render(request, 'delete.html', {'form': form})
 
 
 
